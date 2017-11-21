@@ -3,11 +3,10 @@
 Fundamentos em Data Science
 ============================
 
-Fábio Sato - :envelope: fabiosato@gmail.com
+Fábio Sato
 
+:envelope: fabiosato@gmail.com
 
-https://twitter.com/fabiosat0
-https://www.linkedin.com/in/satofabio/
 
 ---
 # Treinamento
