@@ -10,6 +10,32 @@ https://twitter.com/fabiosat0
 https://www.linkedin.com/in/satofabio/
 
 ---
+# Treinamento
+
+- Aulas terças e quintas, entre 19h e 22h
+- A princípio teremos 8 aulas. Previsão de conclusão do curso no dia 14/12.
+- Cada aula terá sessões teóricas e práticas
+- Objetivos:
+	- Formatar um treinamento de fundamentos em Data Science
+	- Promover o networking entre profissionais interessados na área
+
+
+---
+# Conteúdo do Treinamento
+
+- Introdução a Data Science e Aprendizado de Máquina
+- Python, Jupyter, Scikit-Learn e Keras
+- Manipulação e análise de dados com Pandas, Matplotlib e Seaborn
+- Aprendizado supervisionado e não-supervisionado, e aprendizado por reforço
+- Bases de treinamento, testes, métricas, validação cruzada
+- Normalização de dados, preenchimento de falhas, *feature engineering*
+- Algoritmos de clustering: K-Means e K-NN
+- Support Vector Machines
+- Bagging, boosting e Ensembles
+- Árvores de Decisão, Random Forests e Gradient Boosting
+- Redes Neurais
+
+---
 # Dia 1 - Agenda
 
 ## Introdução a ML e Python
@@ -21,27 +47,23 @@ https://www.linkedin.com/in/satofabio/
 	* Introdução ao Python
 
 ---
-# ![20% Sobre mim](figuras/sato.jpg) Sobre mim 
+# Sobre mim 
 
 - **Formação**:
-	- CEFET-PR: Técnico em eletrônica
 	- UFPR: Engenheiro Civil
 	- PUC-PR: Especialista em Tecnologia da Informação
 	- UFPR: Mestrado em Ciência da Computação
-- **Experiência profissional**:
-	- SIMEPAR: Gerente de Informática, Desenvolvedor, Cientista de Dados
-- **Temas de interesses**:
-	- Bancos de dados, computação distribuída, programação funcional, aprendizado de máquina, visualização científica, computação evolucionária, sistemas de informação geográficos, sensoriamento remoto 
+- **Área de atuação**:
+	- SIMEPAR: Computação Científica desde 1998
+- **Temas de trabalho/pesquisa**:
+	- Processamento simbólico, bases de dados, computação distribuída, programação funcional, aprendizado de máquina, visualização científica, computação evolucionária, sistemas de informação geográficos, sensoriamento remoto, telemetria
 
 ---
 # Fale um pouco sobre você :smile:
  - Formação acadêmica/tecnológica
  - Experiência profissional
  - Áreas de interesse
- - Expectativa com o treinamento. Que problemas gostaria de resolver?
- - O que você sabe sobre *Data Science*?
- - O que você sabe sobre Aprendizado de Máquina? 
- - Exemplos de aplicações de Aprendizado de Máquina?
+ - Expectativa com o treinamento
 
 ---
 # O que é *Data Science*?
@@ -73,13 +95,13 @@ A metodologia científica é um conjunto de técnicas para investigar um fenôme
 
 
 ---
-# AI x ML x DL
+# IA -> Machine Learning -> Deep Learning
 - AI - Inteligência Artificial: Área de estudo. Início na década de 50
 - ML - Machine Learning: sub-área de Inteligência Artificial
 - DL - Deep Learning: sub-área de Aprendizado de Máquina
 
 ---
-# AI x ML x DL
+# IA -> Machine Learning -> Deep Learning
 
 ![120% center](figuras/ai-ml-deep_ml.png)
 
@@ -124,6 +146,10 @@ Três categorias principais de aprendizado:
 ![center](figuras/machine-learning-problems.png)
 
 ---
+# Classificação *vs* Regressão
+![center](figuras/classification-regression.png)
+
+---
 # Aprendizado Supervisionado
 
 - No aprendizado supervisionado o algoritmo aprende a reconhecer padrões a partir de dados de treinamento **rotulados** (*labels*)
@@ -153,13 +179,13 @@ Três categorias principais de aprendizado:
 
 
 ---
-# Supervised Learning Workflow
-
-![120% center Supervised Learning Workflow](./figuras/supervised-learning-workflow.jpg)
-
----
 # Supervisionado x Não-Supervisionado
 ![200% center Supervised x Unsupervised](./figuras/supervised-unsupervised.png)
+
+---
+# Aprendizado Supervisionado - Workflow
+
+![150% center Supervised Learning Workflow](./figuras/supervised-learning-workflow.jpg)
 
 ---
 # Aprendizado Supervisionado - Exemplo
@@ -271,7 +297,7 @@ Fronteiras simples (linear) parecem errar algumas **tendências** (**variância*
 ---
 # Fronteira de Decisão - Viés
 
-Fronteiras complexas parecem estar **presas a especificidades da base de treinamento (viés)**
+Fronteiras complexas ficam **presas a especificidades da base de treinamento (viés)**
 
 ![center](figuras/salmon-seabass-boundary-complex.png)
 
@@ -293,10 +319,10 @@ Um problema central em reconhecimento de padrões consiste na construção de cl
 ---
 # Teoria de Decisão
 
-- Em muitas situações, as consequências de nossas classificações não possuem impacto/custo igual
-- No caso do nosso exemplo, é aceitável ter pedaços saborosos de salmão em latas rotuladas como robalo. Entretanto, o contrário não é verdadeiro
-- Desta forma, é necessário ajustar nossas decisões (fronteira) para incorporar estes custos variáveis
-- Nosso objetivo é definir uma fronteira de decisão que minimize o custo geral (teoria de decisão)
+- Em muitas situações, as consequências de nossas classificações não possuem impacto/custo iguais
+- No caso do nosso exemplo, é aceitável vender pedaços de salmão como robalo. Entretanto, o contrário não é verdadeiro
+- Desta forma, é necessário ajustar nossas decisões (fronteira) para incorporar estes custos de erros de decisões
+- Nosso objetivo é definir uma fronteira de decisão que minimize o custo geral
 
 --- 
 # Desenvolvimento de um classificador supervisionado
@@ -308,5 +334,5 @@ Um problema central em reconhecimento de padrões consiste na construção de cl
 5 - Use o modelo para classificar novos exemplos
 
 ---
-# Como seria um algoritmo não-supervisionado de classificação de peixes?
+# Discussão: Você imagina como seria o funcionamento de um algoritmo não-supervisionado de classificação de peixes?
 
