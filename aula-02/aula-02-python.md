@@ -142,12 +142,33 @@ O módulo `pickle`do Python implementa protocolos binários para serialização 
 
 - *Pickling* é o processo onde uma hierarquia de objetos é convertido em um fluxo de bytes.
 
-- Unpickling* é a operação inversa
+- *Unpickling* é a operação inversa
 
 ---
 # NumPy
 
 Biblioteca para cálculos numéricos
+
+---
+# Serialização de Objetos - Exemplo
+
+Escrita
+```python
+import pickle
+
+favorite_color = {"lion": "yellow", "kitty": "red"}
+pickle.dump(favorite_color, open("save.p", "wb"))
+```
+
+Leitura
+
+```python
+import pickle
+
+favorite_color = pickle.load( open("save.p", "rb") )
+```
+
+---
 
 ![60% center Numpy](figuras/numpy.png)
 
@@ -279,7 +300,7 @@ M[1, 1]
 M[1, :]
 M[:, 1]
 M[1:3]
-M[,0:1]
+M[:,0:1]
 ```
 
 ---
@@ -309,21 +330,28 @@ M * 2
 
 M + 2
 ```
+---
+# Numpy - Multiplicação de Matrizes
+
+![120% center](figuras/numpy-matrix-multiplication.jpg)
+
 
 ---
 # NumPy - Multiplicação
 
-Elemento a elemento
-
+Elemento a elemento (Hadamard)
 ```python
 M * M
 ```
 
-Produto interno
+Produto Matricial
 
 ```python
 dot(M, M)
 ```
+
+---
+
 
 ---
 # Matplotlib
@@ -563,30 +591,50 @@ pop[pop < 9.8] = 0
 # Pandas - Sumarização e Estatísticas Básicas
 
 ```python
-mcars = pd.read_csv('http://bit.ly/2mVbMR4')
+mpg = pd.read_csv('http://bit.ly/2jjoxjk')
 
-mcars.describe()
+mpg
+
+mpg.head()
+
+mpg.tail()
+
+mpg.min()
+
+mpg.max()
+
+mpg.describe()
 ```
 
 ---
-# Pandas - Crosstab
+# Pandas - Group By
 
-Calcula um tabulação cruzada entre dois (ou mais) fatores.
-
-Por padrão calcula uma tabela de frequência dos fatores
-
+Agrupa dados por determinada coluna para operações de agregação
 
 ```python
-pd.crosstab(mcars.gear, columns=[mcars.cyl, mcars.carb])
+
+mpg.groupby('model_year')['mpg'].max()
+
 ```
 
 ---
-# Pandas - Outras Funcionalidades
+# Pandas - Pivot Table
 
-- Agregação de dados
-    - GroupBy
-    - Tabelas Pivot
-- Séries Temporais
-    - Períodos/Frequências
-    - Operações de séries temporais com frequências diferentes
-    - *Downsampling*/*Upsampling*
+Cria uma tabela de pivot similar a de uma planilha eletrônica
+
+```python
+
+pd.pivot_table(mpg,
+               values='mpg',
+               index='model_year',
+               columns='cylinders',
+               aggfunc=max)
+
+```
+---
+# Pandas - Exercícios
+
+1 - Adicione ao dataframe `mpg` uma nova coluna contendo a relação entre peso e potência.
+
+2 - A partir do dataframe `mpg` apresente a relação entre os maiores e menores valores de mpg agrupados por cilindrada, para os veículos produzidos a partir de 75 e que possuem peso inferior a 3500.
+
