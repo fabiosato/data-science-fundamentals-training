@@ -135,13 +135,13 @@ recall_score(y, y_pred)
 
 - Discuta os resultados de classificação obtidos com $k$-Means para o dados do Iris
 
-Suponha que você não soubesse o número de classes de antemão. Como avaliar o melhor $k$?
+- Suponha que você não soubesse o número de classes de antemão. Como avaliar o melhor $k$?
 
 ---
 # Clustering - Análise de Silhueta
 Analisa a distância de separação dos *clusters* obtidos
 
-A plotagem de silhueta apresenta uma medida de quão perto cada ponto de um cluster está próximo de clusters vizinhos. Esta distância varia entre [-1, 1]
+A plotagem de silhueta apresenta uma medida de quão perto cada ponto de um cluster está próximo de clusters vizinhos. Esta distância varia entre [-1, +1]
 
 Coeficientes de silhueta próximos a +1 indicam que a amostra está longe dos clusters vizinhos
 
@@ -155,13 +155,24 @@ Valores negativos indicam que as amostras foram assinaladas ao cluster errado
 ![% center Silhueta](figuras/kmeans-silhouette.png)
 
 ---
+# Clustering - Silhueta: Scikit-Learn
+
+```python
+from sklearn.metrics import silhouette_score
+
+for k in range(2, 7):
+    kmeans = KMeans(n_clusters=k)
+    kmeans.fit(X)
+    y_pred = kmeans.predict(X)
+    print("k=%d, silhueta=%f" % (k, silhouette_score(X, y_pred)))
+```
+
+---
 # Clustering - Cotovelo (Elbow)
 
 Método para interpretação e validação da consistência interna dos clusters para ajudar a encontrar un $k$ ótimo
 
 Procura pela variância explicada pelos clusters de forma que a adição de um novo cluster não traduz em um melhor modelo para os dados
-
-Plota-se a porcentagem da variância explicada pelos clusters contra o número de clusters
 
 Os primeiros clusters adicionam mais informação (mais variância) mas em um determinado ponto os ganhos começam a se tornar marginais
 
@@ -169,6 +180,25 @@ Os primeiros clusters adicionam mais informação (mais variância) mas em um de
 # Clustering - Cotovelo: Exemplo
 
 ![% center Elbow](figuras/clustering-elbow.png)
+
+---
+# Clustering - Cotovelo: Scikit-Learn
+
+```python
+distortions = []
+K = range(1,10)
+for k in K:
+    kmeans = KMeans(n_clusters=k).fit(X)
+    kmeans.fit(X)
+    distortions.append(sum(np.min(cdist(X, kmeans.cluster_centers_, 'euclidean'), axis=1)) / X.shape[0])
+ 
+# Plot the elbow
+plt.plot(K, distortions, 'bx-')
+plt.xlabel('$k$')
+plt.ylabel('Distorção')
+plt.title('Método do Cotovelo - busca do valor ótimo de $k$')
+plt.show()
+```
 
 ---
 # $k$-NN - Vizinhos mais Próximos
@@ -207,7 +237,8 @@ y_pred = knn.predict(X_test)
 ```
 
 ---
-# $k$-NN - Exercícios
+# $k$-NN - Exercício
 
-- Avalie o desempenho do algoritmo para $k = 1$ e $k = 5$ nas bases de treinamento e de testes
-- Altere a função de distância e avalie o desempenho do algoritmo para $k = 3$ na base de testes
+- Utilize o algoritmo $k$-NN na base de dados MNIST. 
+- Verifique a acurácia do algoritmo para diferentes valores de $k$ comparando os resultados do algoritmo nas bases de treinamento e de testes.
+- Visualize os clusters resultantes da melhor configuração de $k$
