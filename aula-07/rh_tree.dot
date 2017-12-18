@@ -1,0 +1,32 @@
+digraph Tree {
+node [shape=box] ;
+0 [label="MonthlyIncome <= 2973.5\ngini = 0.272\nsamples = 1029\nvalue = [862, 167]"] ;
+1 [label="OverTime <= 0.5\ngini = 0.435\nsamples = 275\nvalue = [187, 88]"] ;
+0 -> 1 [labeldistance=2.5, labelangle=45, headlabel="True"] ;
+2 [label="YearsWithCurrManager <= 0.5\ngini = 0.322\nsamples = 193\nvalue = [154, 39]"] ;
+1 -> 2 ;
+3 [label="gini = 0.475\nsamples = 62\nvalue = [38, 24]"] ;
+2 -> 3 ;
+4 [label="gini = 0.203\nsamples = 131\nvalue = [116, 15]"] ;
+2 -> 4 ;
+5 [label="MonthlyIncome <= 2475.0\ngini = 0.481\nsamples = 82\nvalue = [33, 49]"] ;
+1 -> 5 ;
+6 [label="gini = 0.395\nsamples = 48\nvalue = [13, 35]"] ;
+5 -> 6 ;
+7 [label="gini = 0.484\nsamples = 34\nvalue = [20, 14]"] ;
+5 -> 7 ;
+8 [label="OverTime <= 0.5\ngini = 0.188\nsamples = 754\nvalue = [675, 79]"] ;
+0 -> 8 [labeldistance=2.5, labelangle=-45, headlabel="False"] ;
+9 [label="JobInvolvement <= 1.5\ngini = 0.134\nsamples = 539\nvalue = [500, 39]"] ;
+8 -> 9 ;
+10 [label="gini = 0.367\nsamples = 33\nvalue = [25, 8]"] ;
+9 -> 10 ;
+11 [label="gini = 0.115\nsamples = 506\nvalue = [475, 31]"] ;
+9 -> 11 ;
+12 [label="MaritalStatus <= 1.5\ngini = 0.303\nsamples = 215\nvalue = [175, 40]"] ;
+8 -> 12 ;
+13 [label="gini = 0.195\nsamples = 155\nvalue = [138, 17]"] ;
+12 -> 13 ;
+14 [label="gini = 0.473\nsamples = 60\nvalue = [37, 23]"] ;
+12 -> 14 ;
+}
