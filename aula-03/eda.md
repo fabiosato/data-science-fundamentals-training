@@ -92,7 +92,7 @@ Seaborn é uma biblioteca para fazer gráficos estatísticos atraentes e informa
 ---
 # Seaborn - Recursos
 
-- Remas integrados para estilizar gráficos matplotlib
+- Temas integrados para estilizar gráficos matplotlib
 - Ferramentas para escolher paletas de cores adequadas para descoberta visual de padrões em dados
 - Funções para visualização e comparaçõa de distribuições univariadas e bivariadas entre subconjuntos de dados
 - Ferramentas para geração e visualização de modelos de regressão lineares
